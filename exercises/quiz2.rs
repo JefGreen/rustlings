@@ -34,10 +34,18 @@ mod my_module {
     // TODO: Complete the function signature!
     pub fn transformer<T>(input: Vec<(String, Command)>) -> Vec<T> {
         // TODO: Complete the output declaration!
-        let mut output: Vec<T> = vec![];
-        for (string, command) in input.iter() {
+        let output: Vec<T> = vec![];
+        for (mut string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
-            // handle enum here
+            match (command) {
+                Command::Uppercase => string.to_uppercase(),
+                Command::Trim => string.trim(),
+                Command::Append(size) => {
+                    loop size {
+                        string += "bar"
+                    };
+                }
+            }
         }
         output
     }
