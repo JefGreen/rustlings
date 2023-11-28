@@ -41,9 +41,9 @@ mod my_module {
                 Command::Uppercase => string.to_uppercase(),
                 Command::Trim => string.trim(),
                 Command::Append(size) => {
-                    loop size {
+                    for i in 1..size {
                         string += "bar"
-                    };
+                    }
                 }
             }
         }
