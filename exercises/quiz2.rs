@@ -44,6 +44,7 @@ mod my_module {
                     for i in 1..size {
                         string += "bar"
                     }
+                    return string;
                 }
             }
         }
