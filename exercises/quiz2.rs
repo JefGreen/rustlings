@@ -41,6 +41,7 @@ mod my_module {
                 Command::Uppercase => output.push(string.to_uppercase()),
                 Command::Trim => output.push(string.trim().to_string()),
                 Command::Append(size) => {
+                    // Handle usize
                     for i in 1..size {
                         string = string + "bar"
                     }
