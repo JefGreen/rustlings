@@ -32,20 +32,20 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer<T>(input: Vec<(String, Command)>) -> Vec<String> {
+    pub fn transformer(input: Vec<(String, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
-        let output = vec![];
-        for (mut string, command) in input.iter() {
+        let mut output = vec![];
+        for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
-            match (command) {
+            match command {
                 Command::Uppercase => output.push(string.to_uppercase()),
                 Command::Trim => output.push(string.trim().to_string()),
                 Command::Append(size) => {
-                    // Handle usize
-                    for i in 1..size {
-                        string = string + "bar"
+                    let mut answer = string.to_string();
+                    for i in 0..*size as i32 {
+                        answer = answer + "bar"
                     }
-                    output.push(string);
+                    output.push(answer);
                 }
             }
         }
@@ -67,7 +67,6 @@ mod tests {
             ("foo".into(), Command::Append(1)),
             ("bar".into(), Command::Append(5)),
         ]);
-        println!(output);
         assert_eq!(output[0], "HELLO");
         assert_eq!(output[1], "all roads lead to rome!");
         assert_eq!(output[2], "foobar");
